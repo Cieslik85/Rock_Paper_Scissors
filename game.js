@@ -13,8 +13,8 @@ function getPlayerChoice() {
     if (input === null) {
         return null; 
     }
-    let result = input.trim();
-    if (result === null || result === "" || !['Rock', 'Paper', 'Scissors'].includes(result)) {
+    let result = input.trim().toLowerCase();
+    if (result === "" || !['rock', 'paper', 'scissors'].includes(result)) {
         alert("Don't cheat! We are here to play! Play fair or else...!! Choose Rock, Paper, or Scissors.");
         return getPlayerChoice();
     }
@@ -24,7 +24,7 @@ function getPlayerChoice() {
 // Round Logic
 
 function computerPlay() {
-    const compChoice = ['Rock', 'Paper', 'Scissors'];
+    const compChoice = ['rock', 'paper', 'scissors'];
     let randomChoice = Math.floor(Math.random() * compChoice.length);
     return compChoice[randomChoice];
 }
@@ -34,9 +34,9 @@ function playround(playerSelection, computerSelection) {
         return "draw";
     }
     if (
-        (playerSelection === "Rock" && computerSelection === "Scissors") ||
-        (playerSelection === "Paper" && computerSelection === "Rock") ||
-        (playerSelection === "Scissors" && computerSelection === "Paper")
+        (playerSelection === "rock" && computerSelection === "scissors") ||
+        (playerSelection === "paper" && computerSelection === "rock") ||
+        (playerSelection === "scissors" && computerSelection === "paper")
     ) {
         return "player";
     }
